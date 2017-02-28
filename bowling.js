@@ -51,10 +51,10 @@ export const scoreGame = (inputStream, verbose) => {
 
     if (firstBall === STRIKE) { 
       shiftOne(frames, extra, 10);
-      extra.two = [frameCounter, 10]
+      extra.two = [frameCounter, 10];
       frameCounter++
     } else {
-      shiftOne(frames, extra, firstBall)
+      shiftOne(frames, extra, firstBall);
       secondBall = lookup[inputStream[ballCounter++]];
 
       if (secondBall === SPARE) {
@@ -101,7 +101,7 @@ export const scoreGame = (inputStream, verbose) => {
 
   frameCounter++;
 
-  score = frames.reduce((last, current) => current !== BLANK ? last + current : last, 0)
+  score = frames.reduce((last, current) => current !== BLANK ? last + current : last, 0);
 
   // final scorecard
   if (verbose) { 
@@ -130,9 +130,10 @@ const shiftOne = (frames, extra, ballValue) => {
 }
 
 const makeScoreCard = (frames) => {
-  let score = 0
+  let score = 0;
+
   return (
-    frames.map((current) => {
+    frames.map(current => {
       if(current !== BLANK) {
         score += current;
         return score;
